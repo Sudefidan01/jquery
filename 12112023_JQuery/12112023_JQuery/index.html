@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!--
+        Jquery kodlarıyla çalışabilmek için Jquery kütüphanesini head taglarının arasına eklememiz gerekmektedir
+        Jquery kütüphanesine ulaşabilmek için arama motoruna Jquery get started yazmamız gerekmektedir.
+        Genellikle en üstte çıkan web sitesinde en güncel jquery kütüphanesi çıkmaktadır.Orada bulunan kütüphaneyi scripty kodları arasında eklememiz gerekmektedir
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("p").click(function() {
+                $(this).hide();
+            });
+
+        });
+           
+       
+    </script>
+</head>
+<body>
+    <p> Jquery Dersi</p>
+    <p> Bana Tıkla</p>
+    <!-- JavaScript kodlarıyla yazacak olsaydık-->
+    <!--<script>
+        var object = document.querySelectorAll("p");
+        object[0].onclick= function () {
+            object.style.display = "none";
+        }
+        object[1].onclick = function () {
+            object.style.display = "none";
+        }
+    </script>-->
+    <hr />
+    <!--
+        Jquery ile Değer OKuma ve Değer Atama
+        -------------------------------------
+        HTML tagları ve form elementleri içerisindeki elementlerin değerlerini okuyabilir ve bu alanlara yeni değer ataması yapabiliriz
+        1- text() =>Belirtilen HTML elementinin içerisindeki yazıyı düz metin halinde alır ve değer ataması yapar
+        2- html() => Belirtilen HTML elementinin içerisindeki değeri html formatında alır ve değer ataması yapar
+        3- val()=>Form elementinin içerisine girilen value değerlerini alır ve değer atamasını yapar
+    -->
+    <div class="yaziAlani">
+        Bu bir <b> yazı </b> alanıdır
+    </div>
+    <form>
+        <input name="ad" />
+    </form>
+    <!-- Değer Okuma İşlemleri -->
+    <hr />
+    <button class="yaziOku"> Yazı Oku </button>
+    <button class="htmlOku"> HTML OKu </button>
+    <button class="valOku"> Değer Oku </button>
+    <hr />
+    <!-- Değer Atama İşlemleri -->
+    <button class="yaziAta"> Yazı Ata </button>
+    <button class="htmlAta"> HTML Ata </button>
+    <button class="valAta"> Değer Ata </button>
+    <hr />
+    <!-- Ekrana yazacak yazının kutusu-->
+    <div class="bilgi"> </div>
+    <!-- Jquery Kodları-->
+    <script>
+        $(document).ready(function () {
+            /* Yazı OKu butonuna basıldığında yapılacak işlem*/
+            $('.yaziOku').click(function () {
+                var deger = $('.yaziAlani').text();
+                $('.bilgi').text(deger);
+            });
+
+            /* Html oku butonuna basıldığında yapılacak işlem*/
+            $('.htmlOku').click(function () {
+                var deger = $('.yaziAlani').html();
+                $('.bilgi').html(deger);
+            });
+            /* Değer oku butonuna basıldığında yapılacak işlem*/
+            $('.valOku').click(function () {
+                var deger = $('input[name=ad]').val();
+                $('.bilgi').html(deger);
+            });
+
+            /* Yazı ata butonuna basıldığında yapılacak işlem*/
+            $('.yaziAta').click(function () {
+                $('.bilgi').text('Merhaba ' + '<font color="red"><b> Jquery</b></font> ');
+            });
+
+            /* HTML ata butonuna basıldığında yapılacak işlem*/
+            $('.htmlAta').click(function () {
+                $('.bilgi').html('Merhaba ' + '<font color="red"><b> Jquery</b></font> ');
+            });
+            /* Değer ata butonuna basıldığında yapılacak işlem*/
+            $('.valAta').click(function () {
+                $('input[name=ad]').val('Merhaba bu benim yeni değerim');
+            });
+        });
+    </script>
+    
+</body>
+</html>
